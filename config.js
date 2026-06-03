@@ -1,9 +1,5 @@
-// ============================================================
-//  CONFIGURAÇÃO — preencha com os dados do seu projeto Supabase
-//  Supabase > Project Settings > Data API / API Keys
-//  Se deixar em branco, o app roda em "modo local" (sem login na nuvem).
-// ============================================================
+// Configuracao do Supabase (preenchido automaticamente)
 window.APP_CONFIG = {
-  SUPABASE_URL: "",      // ex.: https://abcd1234.supabase.co
-  SUPABASE_ANON_KEY: ""  // a "anon public" / "publishable" key (pode ficar no front)
+  SUPABASE_URL: "https://lytcmmocjtzaxpkfpfsg.supabase.co",
+  SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx5dGNtbW9janR6YXhwa2ZwZnNnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA0ODA5MzEsImV4cCI6MjA5NjA1NjkzMX0.h3R0nB2YlZw-Ly5_ZJWlEOjan__C9CVTB5sNjbgPgjA"
 };
