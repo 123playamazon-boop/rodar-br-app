@@ -145,7 +145,7 @@ const Guide = (function(){
     { id:"s1", title:"Pegar o produto e gerar o link de afiliado", short:"Produto + link",
       what:"Escolha um produto campeão e gere o SEU link de afiliado dentro da plataforma. É esse link que registra a venda no seu nome.",
       links:[{l:"ClickBank",u:"https://www.clickbank.com"},{l:"CartPanda",u:"https://www.cartpanda.com"},{l:"BuyGoods",u:"https://www.buygoods.com"}],
-      fields:[{id:"nicho",label:"Produto / nicho escolhido",ph:"Ex.: emagrecimento - Produto X"},{id:"afflink",label:"Meu link de afiliado",ph:"Cole aqui o seu link",ml:true}],
+      fields:[{id:"nicho",label:"Produto / nicho escolhido",ph:"Ex.: Vigor Boost"},{id:"afflink2",label:"Link de afiliado — 2 unidades",ph:"Cole o link do pack de 2"},{id:"afflink3",label:"Link de afiliado — 3 unidades",ph:"Cole o link do pack de 3"},{id:"afflink6",label:"Link de afiliado — 6 unidades",ph:"Cole o link do pack de 6"}],
       why:"O link de afiliado garante a sua comissão. Sem o link certo, a venda não cai pra você." },
     { id:"s2", title:"Comprar um domínio próprio", short:"Domínio",
       what:"Compre um domínio próprio (ex.: .shop, que é barato). Ele será o endereço da sua oferta.",
@@ -248,7 +248,7 @@ const Guide = (function(){
     $("gPanel").innerHTML=h; bind();
   }
   function summary(){
-    const map={nicho:"Produto / nicho",afflink:"Link de afiliado",dominio:"Domínio",twr:"TWR",angulo:"Ângulo",pageurl:"URL da página",video:"Vídeo",track:"Trackeamento",adacc:"Conta de anúncio"};
+    const map={nicho:"Produto / nicho",afflink2:"Link 2 un",afflink3:"Link 3 un",afflink6:"Link 6 un",dominio:"Domínio",twr:"TWR",angulo:"Ângulo",pageurl:"URL da página",video:"Vídeo",track:"Trackeamento",adacc:"Conta de anúncio"};
     let rows=""; Object.keys(map).forEach(k=>{ if(g.data[k]) rows+=`<tr><td>${map[k]}</td><td>${esc(g.data[k])}</td></tr>`; });
     const mn={CBO:"CBO",ABO:"ABO",CAT:"Catálogo",BIDCAP:"Bid Cap"}[g.model]||"(não escolhido)";
     rows+=`<tr><td>Modelo de campanha</td><td>${mn}</td></tr>`;
