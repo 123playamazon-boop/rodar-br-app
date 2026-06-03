@@ -1,5 +1,5 @@
 /* ============================================================
-   RODAR BR — app do aluno (estático + Supabase)
+   EASY DR – VEXIS GROUP — app do aluno (estático + Supabase)
    - Login na nuvem se o Supabase estiver configurado (config.js)
    - Sem config => "modo local" (salva só neste navegador)
    ============================================================ */
