@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rodar BR — Sistema do Aluno</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===== Tela de login ===== -->
+<section id="authView" class="auth">
+  <div class="authcard">
+    <div class="brand"><span class="badge">RODAR BR</span></div>
+    <h1 id="authTitle">Entrar na sua conta</h1>
+    <p class="sub" id="authSub">Acesse o seu sistema passo a passo e o painel da oferta.</p>
+
+    <label for="email">E-mail</label>
+    <input id="email" type="email" autocomplete="email" placeholder="voce@email.com">
+
+    <label for="password">Senha</label>
+    <input id="password" type="password" autocomplete="current-password" placeholder="mínimo 6 caracteres">
+
+    <button class="big" id="authBtn">Entrar</button>
+    <div class="authmsg" id="authMsg"></div>
+
+    <div class="switch" id="authSwitch">
+      Ainda não tem conta? <a id="toSignup">Criar conta</a>
+    </div>
+    <div class="authmode" id="authMode"></div>
+  </div>
+</section>
+
+<!-- ===== App ===== -->
+<section id="appView" class="wrap hidden">
+  <div class="appbar">
+    <div class="title"><span class="badge">RODAR BR</span><h1>Sistema do Aluno</h1></div>
+    <div class="who">
+      <span id="userEmail"></span>
+      <button id="signOut">Sair</button>
+    </div>
+  </div>
+  <div class="modebar" id="modeBar"></div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="guide">Guia passo a passo</button>
+    <button class="tab" data-tab="dash">Dashboard</button>
+  </div>
+
+  <div id="guideView"></div>
+  <div id="dashView" class="hidden"></div>
+
+  <div class="foot">Rodar BR • seus dados ficam salvos na sua conta • feito para aprender a rodar oferta no BR</div>
+</section>
+
+<!-- Supabase JS (carregado da CDN; se offline, app cai em modo local) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
+<script src="app.js" defer></script>
+</body>
+</html>
