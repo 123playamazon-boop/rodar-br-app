@@ -189,7 +189,16 @@ const Guide = (function(){
     const inp = f.ml
       ? `<textarea rows="2" data-f="${f.id}" placeholder="${f.ph}">${esc(v)}</textarea>`
       : `<input type="text" data-f="${f.id}" value="${esc(v)}" placeholder="${f.ph}">`;
-    const help = f.help ? `<div class="fhelp" style="font-size:11px;color:var(--gray);margin:3px 0 0;line-height:1.45">📍 ${f.help}</div>` : "";
+    let help="";
+    if(f.help){
+      const red=(f.helpTone==="red"||f.id==="aff_id");
+      const box=red
+        ? "background:rgba(220,38,38,.09);border-left:3px solid var(--red,#dc2626);color:#b42318"
+        : "background:rgba(21,163,74,.10);border-left:3px solid var(--green,#15a34a);color:#0f7a3d";
+      const url=f.helpUrl||"https://www.buygoods.com";
+      const lnk=` <a href="${url}" target="_blank" rel="noopener" style="color:inherit;font-weight:700;text-decoration:underline">Abrir BuyGoods ↗</a>`;
+      help=`<div class="fhelp" style="${box};padding:6px 10px;border-radius:6px;margin:5px 0 0;font-size:11.5px;line-height:1.5">📍 ${f.help}${lnk}</div>`;
+    }
     return `<div class="field"><label>${f.label}</label><div class="frow">${inp}<button class="copy" data-copy="${f.id}">Copiar</button></div>${help}</div>`;
   }
   function askPrompt(s){
