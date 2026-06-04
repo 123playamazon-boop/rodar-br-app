@@ -160,8 +160,8 @@ const Guide = (function(){
     { id:"s4", title:"Gerar a página da VSL (com o Claude)", short:"Página VSL",
       what:"Peça ao Claude a página da VSL pronta. Copie o texto abaixo e mande no chat trocando pelo seu produto.",
       links:[], prompt:"Claude, gera a página da VSL pro produto __PRODUTO__, nicho __NICHO__. Página simples: vídeo no topo, copy de venda e botão de comprar.",
-      fields:[{id:"angulo",label:"Ângulo / promessa da página",ph:"Ex.: secar a barriga em 21 dias"}],
-      why:"É a página que transforma o clique em venda. O Claude monta; você só ajusta o seu produto." },
+      fields:[{id:"angulo",label:"Ângulo / promessa da página",ph:"Ex.: secar a barriga em 21 dias"},{id:"kitimg2",label:"Foto do kit — 2 unidades (link da imagem)",ph:"Cole o link da imagem (ou me manda a foto no chat)"},{id:"kitimg3",label:"Foto do kit — 3 unidades (link da imagem)",ph:"Cole o link da imagem (ou me manda a foto no chat)"},{id:"kitimg6",label:"Foto do kit — 6 unidades (link da imagem)",ph:"Cole o link da imagem (ou me manda a foto no chat)"}],
+      why:"É a página que transforma o clique em venda. O Claude monta; você só ajusta o seu produto. As fotos dos kits 2/3/6 viram os boxes de oferta." },
     { id:"s5", title:"Hospedar a página da VSL", short:"Hospedar (CyberPanel)",
       what:"Suba a página gerada no CyberPanel e ligue ao seu domínio para ela ficar no ar.",
       links:[{l:"CyberPanel",u:"https://cyberpanel.net"}],
@@ -253,7 +253,7 @@ const Guide = (function(){
     $("gPanel").innerHTML=h; bind();
   }
   function summary(){
-    const map={nicho:"Produto / nicho",account_id:"BuyGoods account_id",aff_id:"BuyGoods aff_id",afflink2:"Link 2 un",afflink3:"Link 3 un",afflink6:"Link 6 un",codenames:"Codenames",dominio:"Domínio",twr:"TWR",angulo:"Ângulo",pageurl:"URL da página",video:"Vídeo",vturbid:"VTurb PLAYER_ID",pitch:"Pitch VSL (MM:SS)",track:"Trackeamento",qacheck:"Checagem final",adacc:"Conta de anúncio"};
+    const map={nicho:"Produto / nicho",account_id:"BuyGoods account_id",aff_id:"BuyGoods aff_id",afflink2:"Link 2 un",afflink3:"Link 3 un",afflink6:"Link 6 un",codenames:"Codenames",dominio:"Domínio",twr:"TWR",angulo:"Ângulo",kitimg2:"Foto kit 2un",kitimg3:"Foto kit 3un",kitimg6:"Foto kit 6un",pageurl:"URL da página",video:"Vídeo",vturbid:"VTurb PLAYER_ID",pitch:"Pitch VSL (MM:SS)",track:"Trackeamento",qacheck:"Checagem final",adacc:"Conta de anúncio"};
     let rows=""; Object.keys(map).forEach(k=>{ if(g.data[k]) rows+=`<tr><td>${map[k]}</td><td>${esc(g.data[k])}</td></tr>`; });
     const mn={CBO:"CBO",ABO:"ABO",CAT:"Catálogo",BIDCAP:"Bid Cap"}[g.model]||"(não escolhido)";
     rows+=`<tr><td>Modelo de campanha</td><td>${mn}</td></tr>`;
