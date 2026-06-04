@@ -145,7 +145,7 @@ const Guide = (function(){
     { id:"s1", title:"Pegar o produto e gerar o link de afiliado", short:"Produto + link",
       what:"Escolha um produto campeão e gere o SEU link de afiliado dentro da plataforma. É esse link que registra a venda no seu nome.",
       links:[{l:"ClickBank",u:"https://www.clickbank.com"},{l:"CartPanda",u:"https://www.cartpanda.com"},{l:"BuyGoods",u:"https://www.buygoods.com"}],
-      fields:[{id:"nicho",label:"Produto / nicho escolhido",ph:"Ex.: Vigor Boost"},{id:"afflink2",label:"Link de afiliado — 2 unidades",ph:"Cole o link do pack de 2"},{id:"afflink3",label:"Link de afiliado — 3 unidades",ph:"Cole o link do pack de 3"},{id:"afflink6",label:"Link de afiliado — 6 unidades",ph:"Cole o link do pack de 6"}],
+      fields:[{id:"nicho",label:"Produto / nicho escolhido",ph:"Ex.: Vigor Boost"},{id:"account_id",label:"BuyGoods: account_id (ID do PRODUTO)",ph:"Ex.: 11749"},{id:"aff_id",label:"BuyGoods: aff_id (SEU ID — é POR PRODUTO, não um número único)",ph:"Ex.: 68398 (Dashboard do produto → Your Affiliate Links)"},{id:"afflink2",label:"Link de afiliado — 2 unidades",ph:"Cole o link do pack de 2"},{id:"afflink3",label:"Link de afiliado — 3 unidades",ph:"Cole o link do pack de 3"},{id:"afflink6",label:"Link de afiliado — 6 unidades",ph:"Cole o link do pack de 6"},{id:"codenames",label:"BuyGoods: codenames dos packs 2/3/6",ph:"Ex.: PP_VGB2UNITS_AFF / 3UNITS / 6UNITS"},{id:"bg_track",label:"BuyGoods: Script A (tracking) — vai na PÁGINA",ph:"Cole o script A (tracking)",ml:true},{id:"bg_conv",label:"BuyGoods: Script B (conversão) — vai na PÁGINA",ph:"Cole o script B (conversão)",ml:true},{id:"bg_rt",label:"BuyGoods: RT script — Funnel Pixels → Checkout (marca o IC)",ph:"Settings → Funnel Pixels → campo Checkout",ml:true}],
       why:"O link de afiliado garante a sua comissão. Sem o link certo, a venda não cai pra você." },
     { id:"s2", title:"Comprar um domínio próprio", short:"Domínio",
       what:"Compre um domínio próprio (ex.: .shop, que é barato). Ele será o endereço da sua oferta.",
@@ -170,7 +170,7 @@ const Guide = (function(){
     { id:"s6", title:"Hospedar o vídeo da VSL (VTurb)", short:"Vídeo (VTurb)",
       what:"Suba o vídeo da VSL na VTurb e coloque o player dentro da sua página.",
       links:[{l:"VTurb",u:"https://vturb.com.br"}],
-      fields:[{id:"video",label:"Link / código do vídeo (embed)",ph:"Cole o embed ou o link",ml:true}],
+      fields:[{id:"video",label:"Link / código do vídeo (embed)",ph:"Cole o embed ou o link",ml:true},{id:"vturbid",label:"VTurb: PLAYER_ID (depois do upload)",ph:"Ex.: 6a206e119215eb145b928e99"},{id:"pitch",label:"⭐ Pitch da VSL (MM:SS) — minuto da oferta (só assistindo o vídeo)",ph:"Ex.: 12:34 — define quando a página revela 6/3/2"}],
       why:"A VTurb guarda e toca o vídeo com qualidade e recursos que vendem mais." },
     { id:"s7", title:"Fazer o trackeamento dos resultados", short:"Trackeamento",
       what:"Configure o rastreamento pra medir cliques, vendas e gastos. Use o RedTrack OU a Utmify.",
@@ -248,7 +248,7 @@ const Guide = (function(){
     $("gPanel").innerHTML=h; bind();
   }
   function summary(){
-    const map={nicho:"Produto / nicho",afflink2:"Link 2 un",afflink3:"Link 3 un",afflink6:"Link 6 un",dominio:"Domínio",twr:"TWR",angulo:"Ângulo",pageurl:"URL da página",video:"Vídeo",track:"Trackeamento",adacc:"Conta de anúncio"};
+    const map={nicho:"Produto / nicho",account_id:"BuyGoods account_id",aff_id:"BuyGoods aff_id",afflink2:"Link 2 un",afflink3:"Link 3 un",afflink6:"Link 6 un",codenames:"Codenames",dominio:"Domínio",twr:"TWR",angulo:"Ângulo",pageurl:"URL da página",video:"Vídeo",vturbid:"VTurb PLAYER_ID",pitch:"Pitch VSL (MM:SS)",track:"Trackeamento",adacc:"Conta de anúncio"};
     let rows=""; Object.keys(map).forEach(k=>{ if(g.data[k]) rows+=`<tr><td>${map[k]}</td><td>${esc(g.data[k])}</td></tr>`; });
     const mn={CBO:"CBO",ABO:"ABO",CAT:"Catálogo",BIDCAP:"Bid Cap"}[g.model]||"(não escolhido)";
     rows+=`<tr><td>Modelo de campanha</td><td>${mn}</td></tr>`;
