@@ -138,7 +138,7 @@ const Tabs = (function(){
 })();
 
 /* ============================================================
-   GUIA (10 passos)
+   GUIA (passos)
    ============================================================ */
 const Guide = (function(){
   const STEPS = [
@@ -177,6 +177,11 @@ const Guide = (function(){
       links:[{l:"RedTrack",u:"https://www.redtrack.io"},{l:"Utmify",u:"https://utmify.com.br"}],
       fields:[{id:"track",label:"Ferramenta + ID da campanha",ph:"Ex.: Utmify - campanha 001"}],
       why:"É o seu painel real: mostra de onde vêm as vendas e qual anúncio dá lucro." },
+    { id:"sqa", title:"Checagem final dos links (antes de escalar)", short:"Checagem final",
+      what:"Antes de ligar o tráfego — e toda vez que trocar vídeo, pitch, página ou offer — confira a oferta ponta a ponta numa aba anônima (cookies limpos).",
+      links:[], clTitle:"O que conferir:", checklist:["Página abre pelo link de tracking (rtkcid na URL)","Player do VTurb é o do vídeo ATIVO (nos 3 lugares do embed)","Botões revelam no pitch certo (delaySeconds = MM:SS do vídeo)","Os 2 scripts da BuyGoods estão na página (tracking + conversão)","aff_id é o DO PRODUTO + subid={clickid} na offer","Botões 2/3/6 caem na oferta certa → checkout","IC marca no tracker (RT script no Funnel Pixels → Checkout)"],
+      fields:[{id:"qacheck",label:"Status da checagem",ph:"Ex.: testado em aba anônima — tudo ok"}],
+      why:"Um link errado (player/pitch antigo, aff_id de outro produto, subid faltando) faz a venda não cair pra você. 2 minutos de conferência salvam a comissão." },
     { id:"s8", title:"Comprar a conta e ativar o Meta Ads", short:"Meta Ads",
       what:"Consiga sua conta de anúncio, configure e ative no Meta Ads. Dá pra usar agências (AdCentral, Outlaw, ScaleShield) e validar com número dos EUA no Virtunum.",
       links:[{l:"Meta Ads",u:"https://www.facebook.com/business/ads"},{l:"Virtunum (nº EUA)",u:"https://virtunum.com/en",alt:true}],
@@ -234,7 +239,7 @@ const Guide = (function(){
     h+=`<h2>${s.title}</h2><p class="what">${s.what}</p>`;
     if(s.links&&s.links.length) h+='<div class="links">'+s.links.map(l=>`<a class="lk ${l.alt?'alt':''}" href="${l.u}" target="_blank" rel="noopener">${l.l} ↗</a>`).join("")+'</div>';
     if(s.prompt) h+=`<div class="note blue"><b>Texto pra colar no Claude:</b><div class="field" style="margin-top:8px"><div class="frow"><textarea rows="3" id="gPrompt">${esc(s.prompt)}</textarea><button class="copy" data-copyraw="gPrompt">Copiar</button></div></div></div>`;
-    if(s.checklist) h+='<div class="note green"><b>O que o painel mostra:</b><ul style="margin:8px 0 0;padding-left:20px">'+s.checklist.map(c=>`<li>${c}</li>`).join("")+'</ul></div>';
+    if(s.checklist) h+='<div class="note green"><b>'+(s.clTitle||"O que o painel mostra:")+'</b><ul style="margin:8px 0 0;padding-left:20px">'+s.checklist.map(c=>`<li>${c}</li>`).join("")+'</ul></div>';
     if(s.options) h+='<div class="opts">'+s.options.map(o=>`<div class="opt ${g.model===o.k?'sel':''}" data-model="${o.k}"><b>${o.t}</b><span>${o.d}</span></div>`).join("")+'</div>';
     (s.fields||[]).forEach(f=> h+=fieldHTML(f));
     h+=`<div class="why"><b>Por que isso importa:</b> ${s.why}</div>`;
@@ -248,7 +253,7 @@ const Guide = (function(){
     $("gPanel").innerHTML=h; bind();
   }
   function summary(){
-    const map={nicho:"Produto / nicho",account_id:"BuyGoods account_id",aff_id:"BuyGoods aff_id",afflink2:"Link 2 un",afflink3:"Link 3 un",afflink6:"Link 6 un",codenames:"Codenames",dominio:"Domínio",twr:"TWR",angulo:"Ângulo",pageurl:"URL da página",video:"Vídeo",vturbid:"VTurb PLAYER_ID",pitch:"Pitch VSL (MM:SS)",track:"Trackeamento",adacc:"Conta de anúncio"};
+    const map={nicho:"Produto / nicho",account_id:"BuyGoods account_id",aff_id:"BuyGoods aff_id",afflink2:"Link 2 un",afflink3:"Link 3 un",afflink6:"Link 6 un",codenames:"Codenames",dominio:"Domínio",twr:"TWR",angulo:"Ângulo",pageurl:"URL da página",video:"Vídeo",vturbid:"VTurb PLAYER_ID",pitch:"Pitch VSL (MM:SS)",track:"Trackeamento",qacheck:"Checagem final",adacc:"Conta de anúncio"};
     let rows=""; Object.keys(map).forEach(k=>{ if(g.data[k]) rows+=`<tr><td>${map[k]}</td><td>${esc(g.data[k])}</td></tr>`; });
     const mn={CBO:"CBO",ABO:"ABO",CAT:"Catálogo",BIDCAP:"Bid Cap"}[g.model]||"(não escolhido)";
     rows+=`<tr><td>Modelo de campanha</td><td>${mn}</td></tr>`;
