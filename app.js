@@ -196,8 +196,10 @@ const Guide = (function(){
       const box=red
         ? "background:rgba(220,38,38,.09);border-left:3px solid var(--red,#dc2626);color:#b42318"
         : "background:rgba(21,163,74,.10);border-left:3px solid var(--green,#15a34a);color:#0f7a3d";
-      const url=f.helpUrl||"https://backoffice.buygoods.com/campaigns";
-      const lbl=f.helpLabel||"Abrir Affiliate Hub ↗";
+      const acc=(g.data.account_id||"").trim();
+      const prodUrl=acc?("https://backoffice.buygoods.com/?a="+encodeURIComponent(acc)):"https://backoffice.buygoods.com/campaigns";
+      const url=f.helpUrl||prodUrl;
+      const lbl=f.helpLabel||(acc?("Abrir o produto ("+acc+") ↗"):"Abrir Affiliate Hub ↗");
       const lnk=` <a href="${url}" target="_blank" rel="noopener" style="color:inherit;font-weight:700;text-decoration:underline">${lbl}</a>`;
       help=`<div class="fhelp" style="${box};padding:6px 10px;border-radius:6px;margin:5px 0 0;font-size:11.5px;line-height:1.5">📍 ${f.help}${lnk}</div>`;
     }
