@@ -161,10 +161,11 @@ const Guide = (function(){
       fields:[{id:"twr",label:"Status no TWR (o Claude preenche)",ph:"Ex.: ligado e verificado"}],
       why:"O cloaker é o porteiro do link: manda o cliente certo pra oferta e protege a operação." },
     { id:"s4", title:"Página da VSL — o Claude gera e hospeda", short:"Página (Claude faz)",
-      what:"O Claude gera a página da VSL e já hospeda no seu domínio (CyberPanel). Você só dá o ângulo e as fotos dos kits — o resto é com ele.",
+      what:"O Claude CONSTRÓI a página da VSL no estilo Amanda Khayat (modo agressivo) — headline forte, copy de venda e comentários do Facebook (prova social) — e já hospeda no seu domínio (CyberPanel). Você só dá o ângulo e as fotos dos kits.",
       links:[],
       fields:[{id:"angulo",label:"Ângulo / promessa da página",ph:"Ex.: secar a barriga em 21 dias"},{id:"kitimg2",label:"Foto do kit — 2 unidades (link da imagem)",ph:"Cole o link da imagem (ou me manda a foto no chat)"},{id:"kitimg3",label:"Foto do kit — 3 unidades (link da imagem)",ph:"Cole o link da imagem (ou me manda a foto no chat)"},{id:"kitimg6",label:"Foto do kit — 6 unidades (link da imagem)",ph:"Cole o link da imagem (ou me manda a foto no chat)"},{id:"pageurl",label:"URL da página no ar (o Claude te passa)",ph:"O Claude preenche quando hospedar"}],
-      why:"É a página que transforma o clique em venda. O Claude monta e hospeda; as fotos dos kits 2/3/6 viram os boxes de oferta." },
+      ask:"Constrói a página da VSL usando a skill de copy da Amanda Khayat em MODO AGRESSIVO: headline/lead forte, copy de venda no ritmo de dopamina e os COMENTÁRIOS do Facebook (prova social, perfis fictícios). Embarca o player da VSL, usa as fotos dos kits 2/3/6 nos boxes de oferta e revela os botões no pitch. Depois hospeda no meu domínio.",
+      why:"É a página que transforma o clique em venda — a headline agressiva e os comentários do Facebook (prova social) fazem o trabalho pesado. O Claude monta (copy Amanda) e hospeda; as fotos dos kits 2/3/6 viram os boxes de oferta." },
     { id:"s6", title:"VSL — subir o vídeo (VTurb)", short:"Vídeo (VTurb)",
       what:"Suba o ARQUIVO da VSL (o vídeo é grande): cole um link de download (Drive/Dropbox) ou me mande o arquivo aqui no chat. E diga o Pitch (MM:SS). O Claude sobe no VTurb e já pega o embed/PLAYER_ID — você não precisa preencher isso.",
       links:[{l:"VTurb",u:"https://vturb.com.br"}],
@@ -207,6 +208,7 @@ const Guide = (function(){
     return "Claude, vamos rodar a oferta \""+nicho+"\" — ETAPA: "+s.title+".\n\n"+
            "O que é: "+s.what+"\n"+
            (lines?("\nMeus dados desta etapa:\n"+lines+"\n"):"")+
+           (s.ask?("\n"+s.ask+"\n"):"")+
            "\nExecuta essa etapa comigo (rotina EASY DR), parando nos cliques que são meus (login, pagamento, 2FA).";
   }
   function render(){
