@@ -122,15 +122,54 @@ async function boot(){
    TABS  (Dashboard escondido por enquanto — foco no Guia)
    ============================================================ */
 const Tabs = (function(){
-  const START_HTML = `<div style="max-width:760px;margin:0 auto;padding:4px 0">
-    <h2 style="font-size:20px;margin:0 0 6px">Comece aqui: instale a skill EASY DR</h2>
-    <p style="color:#374151;font-size:14px;line-height:1.6;margin:0 0 14px">Pra eu (o Claude) montar suas ofertas com o passo a passo certo, você instala a skill <b>EASY DR</b> no seu Claude (Cowork) <b>uma vez</b>. Leva 1 minuto. Depois é só preencher a oferta no Guia e clicar em <b>🚀 Subir a oferta</b>.</p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px">
-      <a href="easy-dr.skill" download style="display:inline-block;background:#13a892;color:#fff;font-weight:700;text-decoration:none;padding:12px 18px;border-radius:10px">⬇️ Baixar a skill (.skill)</a>
-      <a href="guia-instalar-skill.pdf" target="_blank" rel="noopener" style="display:inline-block;background:#eef2ff;color:#3730a3;font-weight:700;text-decoration:none;padding:12px 18px;border-radius:10px;border:1px solid #c7d2fe">📄 Abrir o guia de instalação (PDF)</a>
+  const PLAT='display:inline-block;background:#fff;color:#102a44;font-weight:600;text-decoration:none;padding:8px 13px;border-radius:9px;border:1px solid #d3dbe6;font-size:13px';
+  const START_HTML = `<div style="max-width:780px;margin:0 auto;padding:4px 0">
+    <h2 style="font-size:21px;margin:0 0 4px;color:#102a44">Comece aqui</h2>
+    <p style="color:#374151;font-size:14px;line-height:1.6;margin:0 0 16px">Antes de rodar a sua primeira oferta, faça estas 2 coisas — assim você não trava no meio.</p>
+
+    <div style="background:#fff;border:1px solid #e6eaf0;border-radius:14px;padding:16px 18px;margin:0 0 14px">
+      <div style="font-weight:800;color:#102a44;font-size:15px;margin:0 0 4px">1) Instale a skill EASY DR no seu Claude</div>
+      <p style="color:#374151;font-size:13.5px;line-height:1.6;margin:0 0 12px">É o que faz o Claude montar as ofertas com o passo a passo certo. Leva 1 minuto, só uma vez.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a href="easy-dr.skill" download style="display:inline-block;background:#13a892;color:#fff;font-weight:700;text-decoration:none;padding:11px 16px;border-radius:10px">⬇️ Baixar a skill (.skill)</a>
+        <a href="guia-instalar-skill.pdf" target="_blank" rel="noopener" style="display:inline-block;background:#eef4fb;color:#102a44;font-weight:700;text-decoration:none;padding:11px 16px;border-radius:10px;border:1px solid #d3e0ef">📄 Guia de instalação (PDF)</a>
+      </div>
     </div>
-    <div style="background:rgba(19,168,146,.12);border-left:3px solid #13a892;color:#0e7d6f;padding:10px 12px;border-radius:8px;font-size:13px;line-height:1.7">
-      <b>Rápido:</b> 1) Baixe a skill · 2) abra o seu Claude · 3) anexe o <b>easy-dr.skill</b> no chat · 4) clique em <b>"Save skill"</b> · 5) pronto — volte no Guia e use o <b>🚀 Subir a oferta</b>.<br>O guia em PDF tem o passo a passo com as telas.
+
+    <div style="background:#fff;border:1px solid #e6eaf0;border-radius:14px;padding:16px 18px">
+      <div style="font-weight:800;color:#102a44;font-size:15px;margin:0 0 4px">2) Tenha os acessos e arquivos na mão</div>
+      <p style="color:#374151;font-size:13.5px;line-height:1.6;margin:0 0 12px">Junte tudo antes de começar. <a href="antes-de-comecar.pdf" target="_blank" rel="noopener" style="color:#0e7d6f;font-weight:700;text-decoration:underline">📋 Baixar o checklist + links (PDF)</a></p>
+      <div style="font-size:11.5px;font-weight:700;color:#5b6470;letter-spacing:.04em;text-transform:uppercase;margin:0 0 8px">Plataformas — pra subir a oferta</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px">
+        <a href="https://backoffice.buygoods.com/campaigns" target="_blank" rel="noopener" style="${PLAT}">BuyGoods ↗</a>
+        <a href="https://www.clickbank.com" target="_blank" rel="noopener" style="${PLAT}">ClickBank ↗</a>
+        <a href="https://www.cartpanda.com" target="_blank" rel="noopener" style="${PLAT}">CartPanda ↗</a>
+        <a href="https://docs.google.com/document/d/1PjfnZpaAzyWWiiSojdhCyp4HCKGbC69_qqzzm_XFG3U/edit?usp=sharing" target="_blank" rel="noopener" style="${PLAT}">📄 Doc do produtor ↗</a>
+        <a href="https://www.hostinger.com.br" target="_blank" rel="noopener" style="${PLAT}">Hostinger ↗</a>
+        <a href="https://thewhiterabbit.app" target="_blank" rel="noopener" style="${PLAT}">TWR (cloaker) ↗</a>
+        <a href="https://dash.cloudflare.com" target="_blank" rel="noopener" style="${PLAT}">Cloudflare (DNS) ↗</a>
+        <a href="https://cyberpanel.net" target="_blank" rel="noopener" style="${PLAT}">CyberPanel (host) ↗</a>
+        <a href="https://vturb.com.br" target="_blank" rel="noopener" style="${PLAT}">VTurb ↗</a>
+        <a href="https://www.redtrack.io" target="_blank" rel="noopener" style="${PLAT}">RedTrack ↗</a>
+        <a href="https://utmify.com.br" target="_blank" rel="noopener" style="${PLAT}">Utmify ↗</a>
+      </div>
+      <div style="font-size:11.5px;font-weight:700;color:#5b6470;letter-spacing:.04em;text-transform:uppercase;margin:0 0 8px">Pra anunciar (depois)</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px">
+        <a href="https://business.facebook.com" target="_blank" rel="noopener" style="${PLAT}">Meta Ads ↗</a>
+        <a href="https://www.adspower.com" target="_blank" rel="noopener" style="${PLAT}">AdsPower ↗</a>
+        <a href="https://virtunum.com/en" target="_blank" rel="noopener" style="${PLAT}">Virtunum (nº EUA) ↗</a>
+      </div>
+      <div style="font-size:11.5px;font-weight:700;color:#5b6470;letter-spacing:.04em;text-transform:uppercase;margin:0 0 6px">Tenha em mãos</div>
+      <ul style="margin:0;padding-left:20px;color:#374151;font-size:13.5px;line-height:1.8">
+        <li>Seu <b>aff_id</b> do produto (BuyGoods)</li>
+        <li>O <b>arquivo da VSL</b> (vídeo) + o <b>pitch (MM:SS)</b></li>
+        <li>As <b>fotos dos kits</b> (2/3/6)</li>
+        <li>Um <b>nome de domínio</b> (ou deixa o Claude sugerir)</li>
+      </ul>
+    </div>
+
+    <div style="background:rgba(19,168,146,.12);border-left:3px solid #13a892;color:#0e7d6f;padding:10px 12px;border-radius:8px;font-size:13px;line-height:1.6;margin-top:14px">
+      <b>Pronto isso?</b> Vá pra aba <b>Guia passo a passo</b>, escolha o produto + cole o aff_id e clique em <b>🚀 Subir a oferta</b>.
     </div>
   </div>`;
   function init(){
