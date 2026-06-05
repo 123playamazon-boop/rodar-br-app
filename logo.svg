@@ -1,11 +1,13 @@
-<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EASY DR - VEXIS GROUP">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104 116" fill="none" role="img" aria-label="EASY DR - VEXIS GROUP">
   <defs>
-    <linearGradient id="vexisGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#5CE873"/>
-      <stop offset="1" stop-color="#0C7A33"/>
+    <linearGradient id="vexisShield" x1="16" y1="10" x2="88" y2="108" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#15a3ab"/>
+      <stop offset="0.55" stop-color="#1cb39a"/>
+      <stop offset="1" stop-color="#34c98a"/>
     </linearGradient>
   </defs>
-  <path d="M13 21 L31 51 L54 9" fill="none" stroke="url(#vexisGrad)" stroke-width="9"
-        stroke-linejoin="round" stroke-linecap="round"/>
-  <path d="M11 12 l11 -2 -2 11 -11 2 z" fill="url(#vexisGrad)"/>
+  <path d="M52 6 L88 20 V53 C88 80 71 99 52 108 C33 99 16 80 16 53 V20 Z"
+        stroke="url(#vexisShield)" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M34 58 L46.5 71 L71 42"
+        stroke="url(#vexisShield)" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

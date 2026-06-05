@@ -126,10 +126,10 @@ const Tabs = (function(){
     <h2 style="font-size:20px;margin:0 0 6px">Comece aqui: instale a skill EASY DR</h2>
     <p style="color:#374151;font-size:14px;line-height:1.6;margin:0 0 14px">Pra eu (o Claude) montar suas ofertas com o passo a passo certo, você instala a skill <b>EASY DR</b> no seu Claude (Cowork) <b>uma vez</b>. Leva 1 minuto. Depois é só preencher a oferta no Guia e clicar em <b>🚀 Subir a oferta</b>.</p>
     <div style="display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px">
-      <a href="easy-dr.skill" download style="display:inline-block;background:#16a34a;color:#fff;font-weight:700;text-decoration:none;padding:12px 18px;border-radius:10px">⬇️ Baixar a skill (.skill)</a>
+      <a href="easy-dr.skill" download style="display:inline-block;background:#13a892;color:#fff;font-weight:700;text-decoration:none;padding:12px 18px;border-radius:10px">⬇️ Baixar a skill (.skill)</a>
       <a href="guia-instalar-skill.pdf" target="_blank" rel="noopener" style="display:inline-block;background:#eef2ff;color:#3730a3;font-weight:700;text-decoration:none;padding:12px 18px;border-radius:10px;border:1px solid #c7d2fe">📄 Abrir o guia de instalação (PDF)</a>
     </div>
-    <div style="background:rgba(21,163,74,.10);border-left:3px solid #15a34a;color:#0f7a3d;padding:10px 12px;border-radius:8px;font-size:13px;line-height:1.7">
+    <div style="background:rgba(19,168,146,.12);border-left:3px solid #13a892;color:#0e7d6f;padding:10px 12px;border-radius:8px;font-size:13px;line-height:1.7">
       <b>Rápido:</b> 1) Baixe a skill · 2) abra o seu Claude · 3) anexe o <b>easy-dr.skill</b> no chat · 4) clique em <b>"Save skill"</b> · 5) pronto — volte no Guia e use o <b>🚀 Subir a oferta</b>.<br>O guia em PDF tem o passo a passo com as telas.
     </div>
   </div>`;
@@ -254,7 +254,7 @@ const Guide = (function(){
       const red=(f.helpTone==="red"||f.id==="aff_id");
       const box=red
         ? "background:rgba(220,38,38,.09);border-left:3px solid var(--red,#dc2626);color:#b42318"
-        : "background:rgba(21,163,74,.10);border-left:3px solid var(--green,#15a34a);color:#0f7a3d";
+        : "background:rgba(19,168,146,.12);border-left:3px solid var(--green,#13a892);color:#0e7d6f";
       const acc=(prod()?prod().account_id:"");
       const prodUrl=acc?("https://backoffice.buygoods.com/?a="+encodeURIComponent(acc)):"https://backoffice.buygoods.com/campaigns";
       const url=f.helpUrl||(prodUrl+(f.helpAnchor||""));
