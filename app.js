@@ -122,7 +122,28 @@ async function boot(){
    TABS  (Dashboard escondido por enquanto — foco no Guia)
    ============================================================ */
 const Tabs = (function(){
+  const START_HTML = `<div style="max-width:760px;margin:0 auto;padding:4px 0">
+    <h2 style="font-size:20px;margin:0 0 6px">Comece aqui: instale a skill EASY DR</h2>
+    <p style="color:#374151;font-size:14px;line-height:1.6;margin:0 0 14px">Pra eu (o Claude) montar suas ofertas com o passo a passo certo, você instala a skill <b>EASY DR</b> no seu Claude (Cowork) <b>uma vez</b>. Leva 1 minuto. Depois é só preencher a oferta no Guia e clicar em <b>🚀 Subir a oferta</b>.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px">
+      <a href="easy-dr.skill" download style="display:inline-block;background:#16a34a;color:#fff;font-weight:700;text-decoration:none;padding:12px 18px;border-radius:10px">⬇️ Baixar a skill (.skill)</a>
+      <a href="guia-instalar-skill.pdf" target="_blank" rel="noopener" style="display:inline-block;background:#eef2ff;color:#3730a3;font-weight:700;text-decoration:none;padding:12px 18px;border-radius:10px;border:1px solid #c7d2fe">📄 Abrir o guia de instalação (PDF)</a>
+    </div>
+    <div style="background:rgba(21,163,74,.10);border-left:3px solid #15a34a;color:#0f7a3d;padding:10px 12px;border-radius:8px;font-size:13px;line-height:1.7">
+      <b>Rápido:</b> 1) Baixe a skill · 2) abra o seu Claude · 3) anexe o <b>easy-dr.skill</b> no chat · 4) clique em <b>"Save skill"</b> · 5) pronto — volte no Guia e use o <b>🚀 Subir a oferta</b>.<br>O guia em PDF tem o passo a passo com as telas.
+    </div>
+  </div>`;
   function init(){
+    const tabsbar=document.querySelector(".tabs");
+    if(tabsbar && !document.querySelector('.tab[data-tab="start"]')){
+      const sb=document.createElement("button"); sb.className="tab"; sb.setAttribute("data-tab","start"); sb.textContent="📦 Comece aqui";
+      tabsbar.insertBefore(sb, tabsbar.firstChild);
+    }
+    const guideV=$("guideView");
+    if(guideV && guideV.parentNode && !$("startView")){
+      const sv=document.createElement("div"); sv.id="startView"; sv.className="hidden"; sv.innerHTML=START_HTML;
+      guideV.parentNode.insertBefore(sv, guideV);
+    }
     const dtab=document.querySelector('.tab[data-tab="dash"]'); if(dtab) dtab.style.display="none";
     const dview=$("dashView"); if(dview) dview.classList.add("hidden");
     const gtab=document.querySelector('.tab[data-tab="guide"]'); if(gtab) gtab.classList.add("active");
@@ -132,7 +153,8 @@ const Tabs = (function(){
         b.classList.add("active");
         const t=b.dataset.tab;
         $("guideView").classList.toggle("hidden", t!=="guide");
-        $("dashView").classList.toggle("hidden", t!=="dash");
+        const dv=$("dashView"); if(dv) dv.classList.toggle("hidden", t!=="dash");
+        const sv=$("startView"); if(sv) sv.classList.toggle("hidden", t!=="start");
       };
     });
   }
